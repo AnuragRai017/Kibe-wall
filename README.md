@@ -131,4 +131,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-Created with ❤️ by [Anurag Rai]
+Created with ❤️ by Anurag Rai | Last updated: March 2025
