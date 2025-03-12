@@ -1,4 +1,4 @@
-name = "anime-wallpaper-finder"
+name = "kibe-wall"
 main = "_worker.js"
 compatibility_date = "2025-03-12"
 compatibility_flags = ["nodejs_compat"]
