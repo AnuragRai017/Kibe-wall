@@ -20,7 +20,7 @@ A beautiful, modern Next.js application for discovering and downloading high-qua
 
 - **Frontend**: React 19, Next.js 15.2.2
 - **Styling**: Tailwind CSS
-- **State Management**: React Query
+- **State Management**: TanStack Query (React Query v5)
 - **UI Components**: Radix UI
 - **Icons**: Lucide React & React Icons
 - **API Integration**: Wallhaven API
