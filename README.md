@@ -70,6 +70,14 @@ npm run start
 yarn start
 ```
 
+### Deployment Notes
+
+When deploying to platforms like Vercel or Netlify:
+
+- Ensure all dependencies are compatible with React 19
+- If you encounter dependency conflicts, you may need to use `--legacy-peer-deps` or update incompatible packages
+- For deployment issues, check console logs for specific dependency conflicts
+
 ## 🧪 Project Structure
 
 ```
