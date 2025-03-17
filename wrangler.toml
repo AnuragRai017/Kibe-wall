@@ -1,29 +1,21 @@
 name = "kibe-wall"
-main = "_worker.js"
 compatibility_date = "2025-03-12"
 compatibility_flags = ["nodejs_compat"]
 
-# Next.js output - We need to use the standalone output
-[build]
-command = "npm run build"
-[build.upload]
-format = "service-worker"
+# Use the correct main file
+main = "_worker.js"
 
-# Configure the static assets - This is where your static files will be served from
+# Build command that integrates the Cloudflare adapter
+[build]
+command = "npx @cloudflare/next-on-pages@1"
+
 [site]
 bucket = ".next/static"
 
-# Configure environment for production and preview
 [env.production]
 workers_dev = true
-# Add your domain name if you have a custom domain
-# routes = ["your-domain.com/*"]
+vars = { ENVIRONMENT = "production" }
 
 [env.preview]
 workers_dev = true
-
-# Configure environment variables if needed
-[vars]
-# Add your environment variables here if needed
-ENVIRONMENT = "production"
-# API_KEY = "" 
+vars = { ENVIRONMENT = "preview" }
