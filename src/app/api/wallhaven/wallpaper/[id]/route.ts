@@ -5,6 +5,8 @@ export const config = {
   runtime: 'edge',
 };
 
+export const runtime = 'edge';
+
 export async function GET(request: Request) {
   // Extract the ID from the URL path manually
   const url = new URL(request.url);
@@ -29,4 +31,4 @@ export async function GET(request: Request) {
       { status: 500 }
     );
   }
-} 
+}

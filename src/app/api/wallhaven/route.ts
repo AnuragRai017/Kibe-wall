@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 
 const BASE_URL = 'https://wallhaven.cc/api/v1';
 
+export const runtime = 'edge';
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -18,4 +20,4 @@ export async function GET(request: Request) {
       { status: 500 }
     );
   }
-} 
+}
