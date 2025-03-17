@@ -3,17 +3,21 @@ main = "_worker.js"
 compatibility_date = "2025-03-12"
 compatibility_flags = ["nodejs_compat"]
 
-# Next.js output
+# Next.js output - We need to use the standalone output
 [build]
 command = "npm run build"
+[build.upload]
+format = "service-worker"
 
-# Configure the static assets
+# Configure the static assets - This is where your static files will be served from
 [site]
 bucket = ".next/static"
 
-# Configure routes for the Worker
+# Configure environment for production and preview
 [env.production]
 workers_dev = true
+# Add your domain name if you have a custom domain
+# routes = ["your-domain.com/*"]
 
 [env.preview]
 workers_dev = true
@@ -21,4 +25,5 @@ workers_dev = true
 # Configure environment variables if needed
 [vars]
 # Add your environment variables here if needed
+ENVIRONMENT = "production"
 # API_KEY = "" 
