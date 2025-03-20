@@ -11,13 +11,12 @@ command = "npm run build"
 [build.upload]
 format = "service-worker"
 
-[build.external]
-packages = ["@cloudflare/next-on-pages/middleware"]
+# Handle server-only modules
+node_compat = true
 
-# Add node_compatibility section to handle server-only package
-[node_compat]
-enabled = true
-packages = ["server-only"]
+# Add server-only to external packages
+[build.external]
+packages = ["@cloudflare/next-on-pages/middleware", "server-only"]
 
 [site]
 bucket = ".next/static"
