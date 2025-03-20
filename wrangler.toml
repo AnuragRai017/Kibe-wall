@@ -12,7 +12,7 @@ command = "npm run build"
 format = "service-worker"
 
 [build.external]
-packages = ["@cloudflare/next-on-pages/middleware"]
+packages = ["server-only", "@cloudflare/next-on-pages/middleware"]
 
 [site]
 bucket = ".next/static"
