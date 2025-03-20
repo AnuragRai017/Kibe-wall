@@ -1,5 +1,5 @@
-name = "kibe-wall"
-compatibility_date = "2025-03-12"
+name = "anime-wall"
+compatibility_date = "2023-12-01"
 compatibility_flags = ["nodejs_compat"]
 
 # Use the correct main file
@@ -7,7 +7,12 @@ main = "_worker.js"
 
 # Build command that integrates the Cloudflare adapter
 [build]
-command = "npx @cloudflare/next-on-pages@1"
+command = "npm run build"
+[build.upload]
+format = "service-worker"
+
+[build.external]
+packages = ["@cloudflare/next-on-pages/middleware"]
 
 [site]
 bucket = ".next/static"

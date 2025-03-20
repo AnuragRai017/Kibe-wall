@@ -1,4 +1,4 @@
-import { fetchFromNextjs } from '@cloudflare/next-on-pages/middleware';
+import { fetchFromNextjs } from '@cloudflare/next-on-pages';
 
 export default {
   async fetch(request, env, ctx) {
