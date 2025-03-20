@@ -1,25 +1,24 @@
 name = "anime-wall"
 compatibility_date = "2023-12-01"
 compatibility_flags = ["nodejs_compat"]
-
-# Use the correct main file
 main = "_worker.js"
 
-# Build command that integrates the Cloudflare adapter
 [build]
 command = "npm run build"
+
+# Configure module externals for worker
+[rules]
+type = "ESModule"
+[rules.build]
+external = ["server-only"]
+
 [build.upload]
-format = "service-worker"
-
-# Handle server-only modules
-node_compat = true
-
-# Add server-only to external packages
-[build.external]
-packages = ["@cloudflare/next-on-pages/middleware", "server-only"]
-
-[site]
-bucket = ".next/static"
+format = "modules"
+dir = ".next"
+main = "_worker.js"
+module_rules = [
+  { type = "Text", globs = ["**/*.js"], fallthrough = true }
+]
 
 [env.production]
 workers_dev = true

@@ -1,8 +1,10 @@
+// Mark this file as server-only
+globalThis.__SERVER__ = true;
+
 import { fetchFromNextjs } from '@cloudflare/next-on-pages';
 
 const worker = {
   async fetch(request, env) {
-    // Forward the request to the Next.js server
     try {
       return await fetchFromNextjs(request, {
         buildOutput: env.ASSETS,

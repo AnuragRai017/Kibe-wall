@@ -1,11 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   experimental: {
-    // Type checking for API routes - disabling this can fix the build issue
     typedRoutes: false,
-    serverComponentsExternalPackages: [], // Packages to be bundled in the server build
+    serverComponentsExternalPackages: ['server-only'], // Add server-only to external packages
   },
   output: 'standalone', // Enable standalone output for Cloudflare Workers
   
@@ -18,6 +16,12 @@ const nextConfig: NextConfig = {
         fs: false,
       };
     }
+    
+    // Handle server-only modules
+    if (isServer) {
+      config.externals = [...(config.externals || []), 'server-only'];
+    }
+    
     return config;
   },
   
