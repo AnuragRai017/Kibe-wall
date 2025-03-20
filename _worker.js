@@ -1,7 +1,7 @@
 import { fetchFromNextjs } from '@cloudflare/next-on-pages';
 
-export default {
-  async fetch(request, env, ctx) {
+const worker = {
+  async fetch(request, env) {
     // Forward the request to the Next.js server
     try {
       return await fetchFromNextjs(request, {
@@ -16,3 +16,5 @@ export default {
     }
   }
 };
+
+export default worker;
